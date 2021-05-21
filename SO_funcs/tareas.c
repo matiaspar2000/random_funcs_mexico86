@@ -1,7 +1,10 @@
-void* leer_tareas(void* tripulante){
-      char* prox_tarea = pedir_tarea();
+//if(tripulante_desbloqueado)
+char* prox_tarea = pedir_tarea(); 
+while (prox_tarea != EOF) {  //todos los tripulantes tienen q hacer todas las tareas, esto no hace q circule x el archivo y saltee?
+//controlar EOF antes de la func
 
-      while (prox_tarea != EOF) {  //todos los tripulantes tienen q hacer todas las tareas, esto no hace q circule x el archivo y saltee?
+void* leer_tareas(void* tripulante, char* tarea){
+            char** parametros_tarea = string_split(prox_tarea, ";");
             char** parametros_tarea = string_split(prox_tarea, ";");
             char** nombre_tarea = string_split(parametros_tarea[0], " ");
             char* pos_x = prox_tarea[1];
@@ -10,7 +13,8 @@ void* leer_tareas(void* tripulante){
 
             mover_a(tripulante,'x',pos_x);
             mover_a(tripulante,'y',pos_y);
-            //como controlar quantum en caso de RR sleep(atoi(duracion));
+            //como controlar quantum en caso de RR 
+            sleep(atoi(duracion));
 
             if(strcmp(nombre_tarea[0], "GENERAR_OXIGENO") == 0) {
                   generar_oxigeno(nombre_tarea[1]);
@@ -39,9 +43,11 @@ void* leer_tareas(void* tripulante){
 
 void mover_a(tripulante tripulante, char xOy, char valor_nuevo){
       if(xOy == 'x'){
-            tripulante.pos_x = valor_nuevo;
+            tripulante.pos_x = atoi(valor_nuevo);
+            actualizar_bitacora(tripulante, log);
       }else{
-            tripulante.pos_y = valor_nuevo;
+            tripulante.pos_y = atoi(valor_nuevo);
+            actualizar_bitacora(tripulante, log);
       }
       registrar_movimiento(tripulante);
 }
