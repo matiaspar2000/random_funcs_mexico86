@@ -23,6 +23,7 @@ void cambiar_estado(int estado_anterior, int estado_nuevo, t_tripulante tripulan
     case e_bloqueado_emergencia:
         list_remove_by_condition(bloqueado_emergencia, es_el_tripulante);
         break;
+   }
 
    switch(estado_actual){
     case e_llegada:
@@ -43,6 +44,7 @@ void cambiar_estado(int estado_anterior, int estado_nuevo, t_tripulante tripulan
     case e_bloqueado_emergencia:
         list_add(bloqueado_emergencia, tripulante);
         return;
+    }
 }
 
 typedef enum
