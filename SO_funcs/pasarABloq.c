@@ -19,21 +19,21 @@ typedef struct {
     char* estado;
 }auxiliar;
 
-void cambiar_estado(char nuevo_estado){
+void cambiar_estado(estado estado_nuevo){
     pasar_a_estado(trabajando,nuevo_estado);
     pasar_a_estado(listo,nuevo_estado);
     pasar_bloqueados_io(nuevo_estado);
 }
 
-void pasar_a_estado(estado estado, char nuevo_estado){
+void pasar_a_estado(estado estado, estado estado_nuevo){
     struct estado *temp = estado;
     while(temp != NULL){
-        pasar_uno_por_id(estado, char nuevo_estado);
+        pasar_uno_por_id(estado, estado_nuevo);
         }
     }
 }
 
-void pasar_uno_por_id(estado estado, char nuevo_estado){
+void pasar_uno_por_id(estado estado, estado estado_nuevo){
     struct estado *temp2 = estado;
     uint32_t mayor_id = 0;
     while(estado->siguiente !=NULL){
@@ -47,7 +47,7 @@ void pasar_uno_por_id(estado estado, char nuevo_estado){
     list_remove(estado, int index); //q es el index?
 }
 
-void pasar_bloqueados_io(char nuevo_estado){
+void pasar_bloqueados_io(estado estado_nuevo){
     struct estado *temp3 = bloqueado_IO;
     for (int i = 0; i < num_threads || temp3 != NULL; ++i){
         auxiliar *vargs = malloc(sizeof *vargs);

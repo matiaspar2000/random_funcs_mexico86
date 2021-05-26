@@ -41,16 +41,18 @@ void* leer_tareas(void* tripulante, char* tarea){
       return 0;
 }
 
-void mover_a(tripulante tripulante, char xOy, char valor_nuevo){
-      if(xOy == 'x'){
-            tripulante.pos_x = atoi(valor_nuevo);
+void mover_a(tripulante tripulante, bool es_x, char valor_nuevo){
+      if(es_x){
+            tripulante.pos_x++;
             actualizar_bitacora(tripulante, log);
       }else{
-            tripulante.pos_y = atoi(valor_nuevo);
+            tripulante.pos_y++;
             actualizar_bitacora(tripulante, log);
       }
       registrar_movimiento(tripulante);
 }
+
+
 
 /*TO DO: 
 pedir_tarea()
