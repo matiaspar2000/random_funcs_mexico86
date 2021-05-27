@@ -1,28 +1,29 @@
 void leer_sabotaje(EstructuraDeSabotaje sabotaje){
     int x = atoi(get_coords_sabotaje('x', sabotaje));
     int y = atoi(get_coords_sabotaje('y', sabotaje));
-    int id_encargado_resolver = tripulante_mas_cercano(BLOQ,x,y);
+    int id_encargado_resolver = tripulante_mas_cercano(x,y);
     Tripulante* encargado_resolver = get_tripulante(id_encargado_resolver);
     resolver_sabotaje(encargado_resolver,sabotaje);
 }
 
-void tripulante_mas_cercano(estado estado, int x, int y){
+void tripulante_mas_cercano(int x, int y){
     struct estado *temp = estado;
-    int id_encargado;
-    int menor_distancia = distancia(temp->tripulante.pos.x,temp->tripulante.pos_y,x,y);
-    while(temp->siguiente !=NULL){
-        if(menor_distancia < distancia(temp->tripulante.pos.x,temp->tripulante.pos_y,x,y)){
-            id_encargado = temp2->tripulante.t_id;
-            menor_distancia = distancia(temp->tripulante.pos.x,temp->tripulante.pos_y,x,y);
+
+    int menor_distancia(void* t1, void* t2) {
+        if(
+            distancia((t_tripulante*)t2)->pos_x, (t_tripulante*)t2)->pos_y,t1,t2) <
+            distancia((t_tripulante*)t2)->pos_x, (t_tripulante*)t2)->pos_y,t1,t2
+        ){
+		    return ((t_tripulante*)t1);
+        }else{
+            return ((t_tripulante*)t2); 
         }
-        temp2 = temp2->siguiente;
-    }
-    return id_encargado;
+	}
+    cambiar_estado((list_get_minimum(lista, menorID))->e_estado, bloqueado_emergencia, list_get_minimum(lista, menorID));
+    //puede haber +1 emergecia a la vez?
 }
 
-int distancia(char x, char x, int y1, int y2){
-    int x1 = atoi(x);
-    int x2 = atoi(y);
+int distancia(int x, int y, int y1, int y2){
     int d = ((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1));
     return sqrt(d);
 }

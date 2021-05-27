@@ -36,9 +36,9 @@ void pasar_menor_id(estado lista, e_estado estado_nuevo){
 void pasar_menor(estado lista, e_estado estado_nuevo){
     int menorID(void* t1, void* t2) {
         if(((t_tripulante*)t1)->TID < ((t_tripulante*)t2)->TID){
-		    return ((t_tripulante*)t2)->TID;
+		    return ((t_tripulante*)t2);
         }else{
-            return ((t_tripulante*)t2)->TID; 
+            return ((t_tripulante*)t2); 
         }
 	}
 
