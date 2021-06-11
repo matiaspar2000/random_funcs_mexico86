@@ -72,3 +72,6 @@ t_buffer* serilizar_hacer_tarea(uint32_t cantidad, char* tarea)
 	return buffer;
 }
 
+t_buffer* serilizar_reporte_bitacora(uint32_t id, char* reporte);
+t_buffer* serilizar_desplazamiento(uint32_t tid, uint32_t x_nuevo, uint32_t y_nuevo);
+t_buffer* serilizar_hacer_tarea(uint32_t cantidad, char* tarea);

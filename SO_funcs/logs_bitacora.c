@@ -17,7 +17,7 @@ switch(asunto){
         strcat (reporte, dato1);
         strcat (reporte, " a ");
         strcat (reporte, dato2);
-        return "reporte";
+        return reporte;
         break;
 
     case INICIO_TAREA: //dato 1 nombre de tarea como string, dato 2 nada
@@ -47,6 +47,32 @@ switch(asunto){
    default: 
         return "Situación desconocida";
 }
+
+int size = sizeof(int)*2 + sizeof('|');
+char *str_start = malloc(size);
+char *str_end = malloc(size);
+
+char *x = malloc(sizeof(pos_x));
+char *y = malloc(sizeof(pos_x));
+char *xn= malloc(sizeof(x_nuevo));
+char *yn = malloc(sizeof(y_nuevo));
+
+itoa(pos_x, x, 10);
+itoa(pos_y, y, 10);
+itoa(pos_x_nuevo, x_nuevo, 10);
+itoa(pos_y_nuevo, y_nuevo, 10);
+
+strcpy (str_start, x);
+strcat (str_star, "|");
+strcat (str_start, y);
+
+strcpy (str_end, x_nuevo);
+strcat (str_end, "|");
+strcat (str_end, y_nuevo);
+
+
+
+
 
 /*  int size = strlen(a) + strlen(b) + strlen(c) + 1;
   char *str = malloc(size);
