@@ -41,6 +41,5 @@ void pasar_menor(estado lista, e_estado estado_nuevo){
             return ((t_tripulante*)t2); 
         }
 	}
-
     cambiar_estado((list_get_minimum(lista, menorID))->e_estado, estado_nuevo, list_get_minimum(lista, menorID))
 }
